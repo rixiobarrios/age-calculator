@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Age Calculator</title>
+        <style>
+            body {
+                padding: 20px;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            header {
+                max-width: 900px;
+                margin: auto;
+            }
+
+            header h1 {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .calculator-container {
+                max-width: 900px;
+                margin: auto;
+                background-color: white;
+                border: 2px solid black;
+                box-shadow: 5px 5px 0 black;
+            }
+
+            .calculator {
+                display: flex;
+                flex-direction: row;
+            }
+
+            input {
+                font-size: 20px;
+                padding: 15px 15px 15px 50px;
+                position: relative;
+                margin: 0px 0px 25px 25px;
+            }
+
+            h2 {
+                color: gray;
+                padding-left: 30px;
+            }
+
+            .buttons-container {
+                border-top: 2px solid black;
+                padding: 25px;
+            }
+
+            #calculate-age {
+                background-color: white;
+                border: 2px solid black;
+                padding: 15px;
+                font-size: 21px;
+                color: black;
+                box-shadow: 5px 5px 0 black;
+            }
+
+            #try-again {
+                background-color: white;
+                border: 2px solid black;
+                padding: 15px;
+                margin: 0px 0px 0px 20px;
+                font-size: 21px;
+                color: black;
+                box-shadow: 5px 5px 0 black;
+            }
+
+            #calculate-age:hover {
+                box-shadow: 2px 2px 0 black;
+            }
+
+            #try-again:hover {
+                box-shadow: 2px 2px 0 black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Welcome to the Age Calculator</h1>
+        </header>
+        <section class="calculator-container">
+            <div class="calculator">
+                <div id="birth-date">
+                    <h2>Enter Birthdate</h2>
+                    <input type="date" id="birthdate" />
+                </div>
+                <div id="future-year">
+                    <h2>Enter Future Date</h2>
+                    <input type="date" id="futureyear" />
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button id="calculate-age">Calculate</button>
+                <button id="try-again" type="button" onClick="Refresh()">
+                    Try Again
+                </button>
+            </div>
+            <h2 id="getAge"></h2>
+        </section>
+        <script>
+            document
+                .getElementById('calculate-age')
+                .addEventListener('click', function () {
+                    let birthday = document.getElementById('birthdate').value;
+                    let futureYear = document.getElementById('futureyear')
+                        .value;
+                    let date = new Date(futureYear);
+                    let bday = new Date(birthday);
+                    let result = date.getFullYear() - bday.getFullYear();
+                    if (result <= 0) {
+                        return (document.getElementById('getAge').innerHTML =
+                            "<h2><span style='color: red;'> Invalid Date</span></h2>");
+                        // } else if (result != 'undefined') {
+                        //     // trying to catch a NaN error
+                        //     return (document.getElementById('getAge').innerHTML =
+                        //         "<h2><span style='color: red;'> Missing Information</span></h2>");
+                    } else {
+                        return (document.getElementById('getAge').innerHTML =
+                            'Your age would be ' + result + '!');
+                    }
+                });
+            function Refresh() {
+                window.parent.location = window.parent.location.href;
+            }
+        </script>
+    </body>
+</html>
