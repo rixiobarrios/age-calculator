@@ -114,10 +114,9 @@
                     if (result <= 0) {
                         return (document.getElementById('getAge').innerHTML =
                             "<h2><span style='color: red;'> Invalid Date</span></h2>");
-                        // } else if (result != 'undefined') {
-                        //     // trying to catch a NaN error
-                        //     return (document.getElementById('getAge').innerHTML =
-                        //         "<h2><span style='color: red;'> Missing Information</span></h2>");
+                    } else if (Number.isNaN(result)) {
+                        return (document.getElementById('getAge').innerHTML =
+                            "<h2><span style='color: red;'> Missing Information</span></h2>");
                     } else {
                         return (document.getElementById('getAge').innerHTML =
                             'Your age would be ' + result + '!');
