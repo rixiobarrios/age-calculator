@@ -6,4 +6,4 @@
 
 ## Overview
 
-This is a project to showcase my javascript skills through a series of logics and rules put in place to determine what age the user would be given their birthdate and a future date.
+A mini app written in vanilla javascript: Enter your date of birth and a future date to find out how old you would be then.
